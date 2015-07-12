@@ -1,7 +1,6 @@
 var fin,input,output,input_ind,OP_GOTO,OP_PRINT,OP_ON,op_map,ip,code,labels;
 function kill(){
     $('#output').val(output);
-    //TODO: stop the program
     throw new Error('This is not an error. This is just to abort javascript');
 }
 function send_error(err){
@@ -57,7 +56,6 @@ function preprocess() {
         //label declaration
         if (line.slice(-1) == ":") {
             var label = line.substr(0, line.length - 1);
-            //TODO: check label
             if (labels[label] != undefined) {
                 send_error("Label " + label + " declared twice");
             }
@@ -90,6 +88,9 @@ function preprocess() {
             }
             else{
                 code[i].parm2 = labels[code[i].parm2];
+            }
+            if(code[i].parm1.length > 1){
+                send_error(code[i].parm1 + " is more than one character");
             }
         }
         else if(code[i].op_code == OP_GOTO){
