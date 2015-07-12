@@ -270,6 +270,26 @@ Full-Width Styles
   padding: 20px 10px;
   margin: 0 auto;
 }
+textarea {
+  min-height: 300px;
+}
+textarea ,#input{
+  border: 2px solid #765942;
+  border-radius: 10px;
+  padding:10px;
+  font-size: 16px;
+  display: block;
+  width : 100%;
+  margin-bottom: 10px;
+}
+#output{
+  border: 2px solid forestgreen;
+  border-radius: 10px;
+  padding:10px;
+  font-size: 16px;
+  display: block;
+  width : 100%;
+}
 
 #forkme_banner {
   display: block;
