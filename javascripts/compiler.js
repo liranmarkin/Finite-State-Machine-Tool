@@ -1,11 +1,13 @@
-var fin,input,output,input_ind,OP_GOTO,OP_PRINT,OP_ON,op_map,ip,code,labels;
+var fin,input,output,input_ind,OP_GOTO,OP_PRINT,OP_ON,op_map,ip,code,labels,output_element = $('#output');
 function kill(){
-    $('#output').val(output);
+    output_element.val(output);
     throw new Error('This is not an error. This is just to abort javascript');
 }
 function send_error(err){
     console.log("ERROR: "+err);
     output = err;
+    output_element.removeClass('output-good');
+    output_element.addClass('output-error');
     kill();
 }
 
@@ -23,6 +25,9 @@ function print(str){
 
 function execute_step(){
     if(ip >= code.length)
+        return false;
+    //TODO: BUG! if the input is empty, there is no output
+    if(input_ind >= input.length)
         return false;
     var op_code = code[ip].op_code,parm1 = code[ip].parm1, parm2 = code[ip].parm2;
     var jumped = false;
@@ -111,6 +116,8 @@ function preprocess() {
 function execute_program() {
     fin = $('#code').val().split('\n');
     input = $('#input').val();
+    output_element.removeClass('output-error');
+    output_element.addClass('output-good');
     output = "";
     input_ind = 0;
     console.log(fin);
@@ -132,8 +139,10 @@ function execute_program() {
     preprocess();
     while (execute_step()) {
         operations++;
-        if(operations >= 1000)
+        if(operations >= 1000) {
+            console.log("Time limit exceeded");
             kill();
+        }
     }
     kill();
 }

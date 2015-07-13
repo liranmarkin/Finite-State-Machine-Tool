@@ -4,8 +4,9 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Finite-state-machine-tool : ">
+    <meta name="description" content="Finite-state-machine-tool">
 
+      <link rel="stylesheet" type="text/css" href="stylesheets/semantic.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>Finite State Machine Tool</title>
@@ -25,9 +26,17 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner block">
+          <div class="ui label">Learn by examples:</div>
+          <div class="ui buttons">
+              <button class="ui button" id="example1">1</button>
+              <button class="ui button" id="example2">2</button>
+              <button class="ui button" id="example3">3</button>
+              <button class="ui button" id="example4">4</button>
+              <button class="ui button" id="example5">5</button>
+          </div>
         <textarea id="code" placeholder="code"></textarea>
         <input id="input" maxlength="256" placeholder="input">
-        <input id="output" readonly>
+        <input class="output-good" id="output" readonly>
         <br />
         <p>
           <span style="text-decoration: underline">code instructions:</span><br/>
@@ -48,6 +57,7 @@
     </div>
 
     <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/semantic.min.js"></script>
     <script src="javascripts/compiler.js"></script>
     <script src="javascripts/main.js"></script>
   </body>

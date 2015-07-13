@@ -1,4 +1,3 @@
-console.log('This would be the main JS file.');
 $('#code').bind("input change",function(){
     execute_program();
     console.log("changed");
@@ -6,4 +5,20 @@ $('#code').bind("input change",function(){
 $('#input').bind("input change",function(){
     execute_program();
     console.log("changed");
+});
+//TODO: add coding examples
+$('#example1').click(function(){
+
+});
+$('#example2').click(function(){
+
+});
+$('#example3').click(function(){
+
+});
+$('#example4').click(function(){
+
+});
+$('#example5').click(function(){
+
 });
