@@ -131,7 +131,7 @@ function execute_program() {
     while (execute_step()) {
         operations++;
         if(operations >= 1000)
-        kill();
+            kill();
     }
     kill();
 }
