@@ -34,7 +34,7 @@ function execute_step(){
         jumped = true;
     }
     else if(op_code == OP_ON){
-        if(get_input() == parm1){
+        if(parm1.indexOf(get_input()) > -1){
             ip = parm2;
             jumped = true;
         }
@@ -74,7 +74,7 @@ function preprocess() {
             else {
                 code.push({
                     op_code: op_map[act[0]],
-                    parm1: act[1],
+                    parm1: act[1].split(','),
                     parm2: act[2]
                 });
             }
@@ -89,8 +89,10 @@ function preprocess() {
             else{
                 code[i].parm2 = labels[code[i].parm2];
             }
-            if(code[i].parm1.length > 1){
-                send_error(code[i].parm1 + " is more than one character");
+            for(var ch in code[i].parm1){
+                if(ch.length > 1){
+                    send_error(ch + " is more than one character");
+                }
             }
         }
         else if(code[i].op_code == OP_GOTO){
