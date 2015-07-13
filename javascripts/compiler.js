@@ -51,6 +51,8 @@ function execute_step(){
 function preprocess() {
     for(var line_num=0;line_num<fin.length;line_num++) {
         var line=fin[line_num];
+        line += '#';
+        line = line.split('#',1)[0];
         if(line == "")
             continue;
         //label declaration
