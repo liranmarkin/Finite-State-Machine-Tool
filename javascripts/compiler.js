@@ -26,15 +26,14 @@ function print(str){
 function execute_step(){
     if(ip >= code.length)
         return false;
-    //TODO: BUG! if the input is empty, there is no output
-    if(input_ind >= input.length)
-        return false;
     var op_code = code[ip].op_code,parm1 = code[ip].parm1, parm2 = code[ip].parm2;
     var jumped = false;
     if(op_code == OP_PRINT){
         print(parm1);
     }
     else if(op_code == OP_GOTO){
+        if(input_ind >= input.length)
+            return false;
         ip = parm1;
         jumped = true;
     }
