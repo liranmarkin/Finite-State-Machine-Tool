@@ -1,0 +1,21 @@
+#use # to make comment
+
+#declare a label(state) using [name]: 
+#(i.e name then colon)
+q0:
+print 0   #print is the output of that state
+on a q1   #when the next character is a goto label q1
+goto q0   #goto q0 if didn't jump alreay (default jump)
+
+q1:  #declares label q1
+print 0
+on b q2   #if next character is b goto q2
+on a q1	  #if next character is a goto q1
+goto q0   #if next character is not a and not b you will get here
+
+q2:
+print 1   #print 1 means accepting state in that example
+on a q1
+goto q0
+
+#this example is machine that accept words that end with "ab"
