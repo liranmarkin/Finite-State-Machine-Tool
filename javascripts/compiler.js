@@ -75,7 +75,6 @@ function preprocess() {
         else {
             var act = line;
             if (op_map[act[0]] == undefined) {
-                console.log(act);
                 send_error("Action " + act[0] + " is not in dictionary");
             }
             else {
@@ -120,7 +119,6 @@ function execute_program() {
     output_element.addClass('output-good');
     output = "";
     input_ind = 0;
-    console.log(fin);
     OP_GOTO = 0;
     OP_PRINT = 1;
     OP_ON = 2;
