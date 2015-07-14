@@ -13,9 +13,9 @@ $('#example1').click(function(){
         dataType: "text",
         success : function (data) {
             $("#code").val(data);
+            execute_program();
         }
     });
-    execute_program();
 });
 $('#example2').click(function(){
     $.ajax({
@@ -23,9 +23,9 @@ $('#example2').click(function(){
         dataType: "text",
         success : function (data) {
             $("#code").val(data);
+            execute_program();
         }
     });
-    execute_program();
 });
 $('#example3').click(function(){
     $.ajax({
@@ -33,9 +33,9 @@ $('#example3').click(function(){
         dataType: "text",
         success : function (data) {
             $("#code").val(data);
+            execute_program();
         }
     });
-    execute_program();
 });
 $('#example4').click(function(){
     $.ajax({
@@ -43,9 +43,9 @@ $('#example4').click(function(){
         dataType: "text",
         success : function (data) {
             $("#code").val(data);
+            execute_program();
         }
     });
-    execute_program();
 });
 $('#example5').click(function(){
     $.ajax({
@@ -53,7 +53,7 @@ $('#example5').click(function(){
         dataType: "text",
         success : function (data) {
             $("#code").val(data);
+            execute_program();
         }
     });
-    execute_program();
 });

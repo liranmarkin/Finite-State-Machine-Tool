@@ -59,9 +59,11 @@ function preprocess() {
         line = line.split('#',1)[0];
         if(line == "")
             continue;
+
+        line = line.split(' ');
         //label declaration
-        if (line.slice(-1) == ":") {
-            var label = line.substr(0, line.length - 1);
+        if (line[0].slice(-1) == ":") {
+            var label = line[0].substr(0, line[0].length - 1);
             if (labels[label] != undefined) {
                 send_error("Label " + label + " declared twice");
             }
@@ -71,8 +73,7 @@ function preprocess() {
         }
         //action
         else {
-            console.log(line);
-            var act = line.split(' ');
+            var act = line;
             if (op_map[act[0]] == undefined) {
                 console.log(act);
                 send_error("Action " + act[0] + " is not in dictionary");
