@@ -3,9 +3,9 @@
 #declare a label(state) using [name]: 
 #(i.e name then colon)
 q0:
-print 0   #print is the output of that state
+print 0   #print X defines the output of that state as X
 on a q1   #when the next character is a goto label q1
-goto q0   #goto q0 if didn't jump alreay (default jump)
+goto q0   #goto q0 if didn't jump already (default jump)
 
 q1:  #declares label q1
 print 0
