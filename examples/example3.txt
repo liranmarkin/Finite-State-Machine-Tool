@@ -1,5 +1,5 @@
 #this machine recives a number and prints 
-#it's remainder of division by 3
+#it's remainder in division by 3
 
 #use , to make multipe characters jump to same label
 
