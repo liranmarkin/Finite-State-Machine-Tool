@@ -55,3 +55,7 @@ $('#example5').click(function(){
         }
     });
 });
+$('#new_code').click(function(){
+    $("#code").val("");
+    execute_program();
+});
