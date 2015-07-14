@@ -1,7 +1,7 @@
 # this machine receives a number and prints
-# it's remainder in division by 3
+# it's remainder in division by 3.
 
-# use , to make multiple characters jump to same label
+# use , to make multiple characters jump to same label.
 
 q0:
 print 0

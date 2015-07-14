@@ -1,8 +1,8 @@
-# sometime the machine jump regardless of the input.
-# every character in the input aiming only to one state
+# sometimes the machine jumps regardless of the input.
+# every character in the input aiming only to one state.
 # the i-th character in the input effects the i-th state the machine visit at.
 
-# the first state is the one written topmost. regardless to it's label
+# the first state is the one written topmost. regardless to it's label.
 q0:
 print 0
 goto q1
