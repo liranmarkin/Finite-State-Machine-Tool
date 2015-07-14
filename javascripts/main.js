@@ -1,10 +1,8 @@
 $('#code').bind("input change",function(){
     execute_program();
-    console.log("changed");
 });
 $('#input').bind("input change",function(){
     execute_program();
-    console.log("changed");
 });
 var examples_dir = "examples";
 $('#example1').click(function(){

@@ -19,7 +19,6 @@ function get_input(){
 }
 
 function print(str){
-    console.log(str);
     output = str;
 }
 
@@ -60,6 +59,7 @@ function preprocess() {
         if(line == "")
             continue;
 
+        line = line.replace('\t',' ');
         line = line.split(' ');
         //label declaration
         if (line[0].slice(-1) == ":") {
