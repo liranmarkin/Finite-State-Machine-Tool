@@ -7,7 +7,8 @@
     <meta name="description" content="Finite-state-machine-tool">
 
       <link rel="stylesheet" type="text/css" href="stylesheets/semantic.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+      <link rel="stylesheet" type="text/css" href="stylesheets/fsm.css">
+      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>Finite State Machine Tool</title>
   </head>
@@ -25,26 +26,52 @@
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner block">
-          <div class="ui label">Learn by examples:</div>
-          <div class="ui buttons">
-              <button class="ui button" id="example1">1</button>
-              <button class="ui button" id="example2">2</button>
-              <button class="ui button" id="example3">3</button>
-              <button class="ui button" id="example4">4</button>
-              <button class="ui button" id="example5">5</button>
-              <button class="ui button" id="new_code">New</button>
-          </div>
-        <textarea id="code" placeholder="code"></textarea>
-        <input id="input" maxlength="256" placeholder="input">
-        <input class="output-good" id="output" readonly>
-      </section>
+        <section id="main_content" class="inner block">
+            <div class="ui label">Learn by examples:</div>
+            <div class="ui buttons">
+                <button class="ui button" id="example1">1</button>
+                <button class="ui button" id="example2">2</button>
+                <button class="ui button" id="example3">3</button>
+                <button class="ui button" id="example4">4</button>
+                <button class="ui button" id="example5">5</button>
+                <button class="ui button" id="new_code">New</button>
+            </div>
+            <textarea id="code" placeholder="code"></textarea>
+            <input id="input" maxlength="256" placeholder="input">
+            <input class="output-good" id="output" readonly>
+        </section>
+        <header>
+            <h2 class="ui header">FSM to code</h2>
+            <button id="compile" class="ui button inverted violet">Compile</button>
+        </header>
+        <aside class="fsm">
+            <div>
+                <p class="center">Export as: <a href="javascript:saveAsPNG()">PNG</a> | <a href="javascript:saveAsSVG()">SVG</a> | <a href="javascript:saveAsLaTeX()">LaTeX</a></p>
+                <textarea class="fsm-textarea" id="fsm-output"></textarea>
+                <p>The big white box to the left is the FSM designer.&nbsp; Here's how to use it:</p>
+                <ul>
+                    <li><b>Add a state:</b> double-click on the canvas</li>
+                    <li><b>Add an arrow:</b> shift-drag on the canvas</li>
+                    <li><b>Move something:</b> drag it around</li>
+                    <li><b>Delete something:</b> click it and press the delete key (not the backspace key)</li>
+                    <li><b>Make accept state:</b> double-click on an existing state</li>
+                </ul><ul>
+            </ul>
+                <p>The FSM compiles into code above.</p>
+            </div>
+        </aside>
+        <section class="canvas">
+            <canvas id="canvas" width="800" height="600">
+                <span class="error">Your browser does not support<br>the HTML5 &lt;canvas&gt; element</span>
+            </canvas>
+        </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <p class="copyright">Finite-State-Machine-Tool maintained by <a href="https://github.com/markin2000">markin2000</a></p>
+          <p class="copyright">Thanks to <a href="http://madebyevan.com/">Evan Wallace</a> for his "FSM Designer" project</p>
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
@@ -52,6 +79,7 @@
     <script src="javascripts/jquery.js"></script>
     <script src="javascripts/semantic.min.js"></script>
     <script src="javascripts/compiler.js"></script>
+    <script src="javascripts/fsm.js"></script>
     <script src="javascripts/main.js"></script>
   </body>
 </html>

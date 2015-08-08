@@ -59,3 +59,6 @@ $('#new_code').click(function(){
     $("#code").val("");
     execute_program();
 });
+$('#compile').click(function(){
+    compileFSM();
+});
