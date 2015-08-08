@@ -116,11 +116,23 @@ function ExportAsLaTeX() {
 				var dx = Math.cos(angleOrNull);
 				var dy = Math.sin(angleOrNull);
 				if(Math.abs(dx) > Math.abs(dy)) {
-					if(dx > 0) nodeParams = '[right] ', x -= width / 2;
-					else nodeParams = '[left] ', x += width / 2;
+					if(dx > 0){
+                        nodeParams = '[right] ';
+                        x -= width / 2;
+                    }
+					else {
+                        nodeParams = '[left] ';
+                        x += width / 2;
+                    }
 				} else {
-					if(dy > 0) nodeParams = '[below] ', y -= 10;
-					else nodeParams = '[above] ', y += 10;
+					if(dy > 0){
+                        nodeParams = '[below] ';
+                        y -= 10;
+                    }
+					else{
+                        nodeParams = '[above] ';
+                        y += 10;
+                    }
 				}
 			}
 			x *= this._scale;
@@ -696,7 +708,7 @@ function saveBackup() {
 				'type': 'SelfLink',
 				'node': nodes.indexOf(link.node),
 				'text': link.text,
-				'anchorAngle': link.anchorAngle,
+				'anchorAngle': link.anchorAngle
 			};
 		} else if(link instanceof StartLink) {
 			backupLink = {
@@ -704,7 +716,7 @@ function saveBackup() {
 				'node': nodes.indexOf(link.node),
 				'text': link.text,
 				'deltaX': link.deltaX,
-				'deltaY': link.deltaY,
+				'deltaY': link.deltaY
 			};
 		} else if(link instanceof Link) {
 			backupLink = {
@@ -714,7 +726,7 @@ function saveBackup() {
 				'text': link.text,
 				'lineAngleAdjust': link.lineAngleAdjust,
 				'parallelPart': link.parallelPart,
-				'perpendicularPart': link.perpendicularPart,
+				'perpendicularPart': link.perpendicularPart
 			};
 		}
 		if(backupLink != null) {
@@ -793,7 +805,7 @@ StartLink.prototype.getEndPoints = function() {
 		'startX': startX,
 		'startY': startY,
 		'endX': end.x,
-		'endY': end.y,
+		'endY': end.y
 	};
 };
 
@@ -869,7 +881,7 @@ Link.prototype.getEndPointsAndCircle = function() {
 			'startX': start.x,
 			'startY': start.y,
 			'endX': end.x,
-			'endY': end.y,
+			'endY': end.y
 		};
 	}
 	var anchor = this.getAnchorPoint();
@@ -894,7 +906,7 @@ Link.prototype.getEndPointsAndCircle = function() {
 		'circleY': circle.y,
 		'circleRadius': circle.radius,
 		'reverseScale': reverseScale,
-		'isReversed': isReversed,
+		'isReversed': isReversed
 	};
 };
 
