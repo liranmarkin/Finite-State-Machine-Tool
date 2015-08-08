@@ -7,6 +7,7 @@
     margin: auto;
 }
 .fsm{
+    margin-right: 10px;
     float: right;
     display: inline-block;
 }
