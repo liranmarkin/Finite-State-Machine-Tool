@@ -601,43 +601,6 @@ function crossBrowserRelativeMousePos(e) {
 	};
 }
 
-function output(text) {
-	var element = document.getElementById('fsm-output');
-	element.style.display = 'block';
-	element.value = text;
-}
-
-function saveAsPNG() {
-	var oldSelectedObject = selectedObject;
-	selectedObject = null;
-	drawUsing(canvas.getContext('2d'));
-	selectedObject = oldSelectedObject;
-	var pngData = canvas.toDataURL('image/png');
-	document.location.href = pngData;
-}
-
-function saveAsSVG() {
-	var exporter = new ExportAsSVG();
-	var oldSelectedObject = selectedObject;
-	selectedObject = null;
-	drawUsing(exporter);
-	selectedObject = oldSelectedObject;
-	var svgData = exporter.toSVG();
-	output(svgData);
-	// Chrome isn't ready for this yet, the 'Save As' menu item is disabled
-	// document.location.href = 'data:image/svg+xml;base64,' + btoa(svgData);
-}
-
-function saveAsLaTeX() {
-	var exporter = new ExportAsLaTeX();
-	var oldSelectedObject = selectedObject;
-	selectedObject = null;
-	drawUsing(exporter);
-	selectedObject = oldSelectedObject;
-	var texData = exporter.toLaTeX();
-	output(texData);
-}
-
 function restoreBackup() {
 	if(!localStorage || !JSON) {
 		return;
@@ -1138,7 +1101,8 @@ compileFSM = function(){
             code += "goto " + nodes[lastedge.b].text + "\n";
         }
         code += '\n';
-    }
-    $("#code").val(code);
+	}
+	global_code = code;
+    // $("#code").val(code);
     execute_program();
 };
