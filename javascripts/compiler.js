@@ -1,4 +1,7 @@
 var fin,input,output,input_ind,OP_GOTO,OP_PRINT,OP_ON,op_map,ip,code,labels,output_element = $('#output');
+
+var global_code = "";
+
 function kill(){
     output_element.val(output);
     throw new Error('This is not an error. This is just to abort javascript');
@@ -19,7 +22,9 @@ function get_input(){
 }
 
 function print(str){
-    output = str;
+    if (str == "1") output = "Accept";
+    else if (str == "0") output = "Reject";
+    else output = str;
 }
 
 function execute_step(){
@@ -113,7 +118,8 @@ function preprocess() {
 }
 //run the program
 function execute_program() {
-    fin = $('#code').val().split('\n');
+    // fin = $('#code').val().split('\n');
+    fin = global_code.split('\n');
     input = $('#input').val();
     output_element.removeClass('output-error');
     output_element.addClass('output-good');
